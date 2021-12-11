@@ -66,8 +66,8 @@ twitterUrl: https://twitter.com/alvaro_code
 - **Instalación**
 - **Core components** (Renderer, Camera, Scene, Render loop)
 - **Lights (Iluminación)** 💡
+- **Meshes** (Geometría)
 - **Materiales** 🪵
-- **Meshes**
 - **Modelos** (`.gltf`/`.glb` y `.fbx`)
 
 <!--
@@ -146,7 +146,7 @@ const app = createApp(App);
 app.use(TroisJSVuePlugin);
 ```
 
-<p class="bg-yellow-200 p-4 text-sm rounded">⚠️ No utilices este método (plugin) si tu proyecto requiere tree shaking y soporte para Typescript.</p>
+<p class="bg-yellow-200 text-yellow-600 p-4 text-sm rounded">⚠️ No utilices este método (plugin) si tu proyecto requiere tree shaking y soporte para Typescript.</p>
 
 ---
 layout: text-image
@@ -333,7 +333,7 @@ twitterUrl: 'https://twitter.com/alvaro_code'
     
 Similar al loop de los videojuegos, TroisJS lanza un `requestAnimationFrame` loop para renderizar la escena frame by frame, corriendo hasta **60 frames por segundo**. Esto significa que tu codigo se ejecuta 60 veces cada segundo.
 
-<p class="bg-yellow-200 p-4 text-sm rounded">⚠️ Trata de no usar reactividad para actualizar los componentes de TroisJS (puede afectar performance), se recomienda actualizar directamente los objetos de ThreeJS</p>
+<p class="bg-yellow-200 text-yellow-600 p-4 text-sm rounded">⚠️ Trata de no usar reactividad para actualizar los componentes de TroisJS (puede afectar performance), se recomienda actualizar directamente los objetos de ThreeJS</p>
 
 Documentación completa en este [link](https://troisjs.github.io/guide/core/raf.html)
 
@@ -418,15 +418,16 @@ Documentación completa en este [link](https://troisjs.github.io/guide/core/scen
 
 ---
 layout: new-section
-eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
-eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+eventLogo: https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg
+eventUrl: https://www.meetup.com/VueJS-Madrid/
 twitter: '@alvaro_code'
-twitterUrl: 'https://twitter.com/alvaro_code'
+twitterUrl: https://twitter.com/alvaro_code
 ---
 
 # Features
 
-Lights, Materiales, Formas, Modelos
+Luces, Materiales, Formas, Modelos
+
 
 ---
 layout: text-window
@@ -447,8 +448,143 @@ Las luces son un componente fundamental de una escena 3D, permite añadir focos 
 </Scene>
 ```
 
-Documentación completa en este [link](https://troisjs.github.io/guide/core/scene.html)
+Documentación completa en este [link](https://troisjs.github.io/guide/lights/)
 
 ::window::
 
-<LightExample class="h-300px"/>
+<LightExample class="h-250px"/>
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Lights 💡
+
+- `AmbientLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/AmbientLight.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/lights/AmbientLight))
+- `DirectionalLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/DirectionalLight.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/lights/DirectionalLight))
+- `HemisphereLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/HemisphereLight.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/lights/HemisphereLight))
+- `PointLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/PointLight.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/lights/PointLight))
+- `RectAreaLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/RectAreaLight.ts), [threejs doc](https://threejs.org/docs/#api/en/lights/RectAreaLight))
+- `SpotLight` ([source](https://github.com/troisjs/trois/blob/master/src/lights/AmbientLight.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/lights/SpotLight))
+
+
+Documentación completa en este [link](https://troisjs.github.io/guide/lights/)
+
+::window::
+
+
+| Name         | Description     | Type    | Default |
+| ------------ | --------------- | ------- | ------- |
+| `castShadow` | Casting shadow	 | Boolean | `false` |
+| `color` | Light Color	 | String, Number | `#ffffff` |
+| `intensity` | Light Intensity	 | Number | `1` |
+| `position` | Light position	 | Object | `{ x: 0, y: 0, z: 0 }` |
+| `shadowMapSize` | Shadow map size	 | Object | `{ width: 512, height: 512 }` |
+
+---
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Shadows 👻
+
+Para habilitar el uso del sombreado se tienen que hacer los siguientes pasos
+
+1. Añadir `shadow` al componente `Renderer`,
+2. Añadir `cast-shadow` al componente de iluminación,
+3. Añadir `cast-shadow` / `recieve-shadow` en la **Malla**
+
+```ts
+<Renderer shadow>
+  <Camera :position="{ z: 100 }" />
+  <Scene>
+    <PointLight :position="{ y: 50, z: 50 }" cast-shadow :shadow-map-size="{ width: 512, height: 512 }" />
+    <Box :size="10" :rotation="{ x: 1, z: 1 }" cast-shadow>
+      <LambertMaterial />
+    </Box>
+    <Plane :width="100" :height="100" :position="{ z: -20 }" receive-shadow>
+      <LambertMaterial />
+    </Plane>
+  </Scene>
+</Renderer>
+```
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Meshes
+
+Meshes (Mallas) es una colección de vértices, aristas (edges) y caras (faces) que define la forma de un objeto poliédrico.
+ 
+```ts
+<Scene>
+  <Cone
+    :position="{ x: 0, y: 0, z: 0 }"
+    :rotation="{ x: 0, y: 0, z: 0 }"
+    :scale="{ x: 1, y: 1, z: 1 }"
+    :cast-shadow="false"
+    :receive-shadow="false"
+  >
+    <BasicMaterial />
+  </Cone>
+</Scene>
+```
+
+Documentación completa en este [link](https://troisjs.github.io/guide/meshes/)
+
+::window::
+
+<!-- <MeshesExample class="h-250px"/> -->
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Meshes 
+
+- `Box` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Box.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/BoxBufferGeometry))
+- `Circle` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Circle.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/CircleBufferGeometry))
+- `Cone` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Cone.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/ConeBufferGeometry))
+- `Cylinder` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Cylinder.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/CylinderBufferGeometry))
+- `Plane` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Plane.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/PlaneBufferGeometry))
+- `Ring` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Ring.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/RingBufferGeometry))
+- `Sphere` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Sphere.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/SphereBufferGeometry))
+- `Torus` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Torus.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/TorusBufferGeometry))
+- `Tube` ([source](https://github.com/troisjs/trois/blob/master/src/meshes/Tube.ts), [threejs doc](https://threejs.org/docs/#api/en/geometries/TubeBufferGeometry))
+
+Documentación completa en este [link](https://troisjs.github.io/guide/lights/)
+
+::window::
+
+
+| Name         | Description     | Type    | Default |
+| ------------ | --------------- | ------- | ------- |
+| `position` | Position	 | Object | `{ x: 0, y: 0, z: 0 }` |
+| `rotation` | Rotation	 | Object| `{ x: 0, y: 0, z: 0 }` |
+| `scale` | Scale	 | Object | `{ x: 1, y: 1, z: 1 }` |
+| `castShadow` | Cast shadow	 | Boolean | `false` |
+| `receiveShadow` | Receive shadow	 | Boolean | `false` |
+
+---
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+<iframe class="w-full h-400px roundex overflow-hidden" src="https://troisjs.github.io/little-planet/" />
