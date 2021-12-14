@@ -12,18 +12,8 @@ import {
   Texture,
   Box,
   Group,
-  Circle,
-  Cone,
-  Cylinder,
-  Dodecahedron,
-  Icosahedron,
-  Octahedron,
   Ring,
   Sphere,
-  Tetrahedron,
-  Torus,
-  TorusKnot,
-  Tube,
   BasicMaterial,
   LambertMaterial,
   PhongMaterial,
@@ -122,25 +112,22 @@ const fps = useFps()
       resize
       shadow
     >
-      <Camera :position="{ z: 5 }" />
+      <Camera :position="{ z: 5, x: -2 }" />
       <Scene background="#ffffff">
         <AmbientLight color="#808080" />
         <PointLight :position="{ y: 10, z: 10 }" />
         <Group>
           <Box :size="1">
-            <BasicMaterial>
-              <Texture src="/ink.jpg" refraction :refraction-ratio="0.95" />
-            </BasicMaterial>
+            <PhongMaterial
+              color="#5EDCAE"
+              :props="{ transparent: true, opacity: 0.5 }"
+            ></PhongMaterial>
           </Box>
           <Sphere :position="{ x: 3 }">
-            <BasicMaterial>
-              <Texture src="/ink.jpg" refraction :refraction-ratio="0.95" />
-            </BasicMaterial>
+            <PhongMaterial color="#5EDCAE"></PhongMaterial>
           </Sphere>
           <Ring :position="{ x: -3 }">
-            <BasicMaterial>
-              <Texture src="/ink.jpg" refraction :refraction-ratio="0.95" />
-            </BasicMaterial>
+            <PhongMaterial color="#5EDCAE"></PhongMaterial>
           </Ring>
         </Group>
       </Scene>

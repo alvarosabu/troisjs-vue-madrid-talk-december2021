@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'PorscheNext';
+  font-weight: normal;
+  font-style: normal;
+  src: local('PorscheNext'),
+    url(../assets/fonts/PorscheNext-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'PorscheNext';
+  font-weight: lighter;
+  font-style: normal;
+  src: local('PorscheNext'),
+    url(../assets/fonts/PorscheNext-Thin.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'PorscheNext';
+  font-weight: bold;
+  font-style: normal;
+  src: local('PorscheNext'),
+    url(../assets/fonts/PorscheNext-SemiBold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'PorscheNext';
+  font-weight: bolder;
+  font-style: normal;
+  src: local('PorscheNext'),
+    url(../assets/fonts/PorscheNext-Bold.otf) format('opentype');
+}
+
+.slidev-page-3 {
+  background: #0e1418e6 !important;
+
+  h1 {
+    position: relative;
+    font-family: 'PorscheNext' !important;
+    color: white !important;
+  }
+
+  h1 span {
+    color: #d5001c !important;
+  }
+
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: -1.6rem;
+    left: 4rem;
+    display: block;
+    width: 100%;
+    height: 41px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/signature-bcn.svg');
+  }
+
+  svg {
+    display: none;
+  }
+
+  .btn {
+    @apply text-xs bg-white px-4 py-3 !text-black no-underline inline-flex mt-16 w-1/3 border-none;
+    @apply transition-colors duration-250 hover:bg-gray-100;
+    font-family: 'PorscheNext' !important;
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  animation: tada 1s 2s;
+}

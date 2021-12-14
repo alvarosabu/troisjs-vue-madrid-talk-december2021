@@ -50,7 +50,16 @@ twitter: '@alvaro_code'
 twitterUrl: 'https://twitter.com/alvaro_code'
 ---
 
-# Porsche Digital Barcelona Slide
+<div class="w-full grid grid-cols-2">
+  <div>
+   <img class="shadow-lg transform rotate-2" src="/porsche-collage.png" />
+  </div>
+  <div class="flex flex-col items-end">
+   <h1 class="mb-24">Porsche <span>Digital</span></h1>
+   <a class="btn tada" href="https://bcn-porsche-digital.softgarden.io/de/vacancies">Únete a nosotros</a>
+  </div>
+  
+</div>
 
 ---
 eventLogo: https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg
@@ -322,7 +331,7 @@ Documentación completa en este [link](https://troisjs.github.io/guide/core/scen
 
 ---
 layout: text-image
-media: /public/frames-per-second-diagram.png
+media: /frames-per-second-diagram.png
 eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
 eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
 twitter: '@alvaro_code'
@@ -339,7 +348,7 @@ Documentación completa en este [link](https://troisjs.github.io/guide/core/raf.
 
 ---
 layout: text-window
-media: /public/frames-per-second-diagram.png
+media: /frames-per-second-diagram.png
 eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
 eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
 twitter: '@alvaro_code'
@@ -379,7 +388,7 @@ Documentación completa en este [link](https://troisjs.github.io/guide/core/scen
 
 ---
 layout: text-window
-media: /public/frames-per-second-diagram.png
+media: /frames-per-second-diagram.png
 eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
 eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
 twitter: '@alvaro_code'
@@ -545,7 +554,7 @@ Documentación completa en este [link](https://troisjs.github.io/guide/meshes/)
 
 ::window::
 
-<!-- <MeshesExample class="h-250px"/> -->
+<MeshesExample class="h-250px"/>
 
 ---
 layout: text-window
@@ -588,3 +597,196 @@ twitterUrl: 'https://twitter.com/alvaro_code'
 ---
 
 <iframe class="w-full h-400px roundex overflow-hidden" src="https://troisjs.github.io/little-planet/" />
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Materiales
+
+Esencialmente, un material es el conjunto propiedades visuales asignadas a un objeto. Controla como el objeto es percibido en el renderizado.
+
+ 
+```ts
+<Box>
+  <PhongMaterial color="#ffffff" 
+  :props="{ transparent: true, opacity: 0.5 }" />
+</Box>
+```
+
+Documentación completa en este [link](https://troisjs.github.io/guide/materials/)
+
+::window::
+
+<MaterialsExample class="h-250px"/>
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Materiales 
+
+- `BasicMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshBasicMaterial))
+- `LambertMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshLambertMaterial))
+- `MatcapMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/MatcapMaterial.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshMatcapMaterial))
+- `PhongMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial))
+- `PhysicalMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshPhysicalMaterial))
+- `ShaderMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/ShaderMaterial.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/ShaderMaterial))
+- `StandardMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshStandardMaterial))
+- `SubSurfaceMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/SubSurfaceMaterial.ts), [threejs example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_materials_subsurface_scattering.html))
+- `ToonMaterial` ([source](https://github.com/troisjs/trois/blob/master/src/materials/Material.ts), [threejs doc](https://threejs.org/docs/index.html#api/en/materials/MeshToonMaterial))
+
+
+Documentación completa en este [link](https://troisjs.github.io/guide/lights/)
+
+::window::
+
+
+| Name         | Description     | Type    | Default |
+| ------------ | --------------- | ------- | ------- |
+| `color` | Color	 | String, Number | `#ffffff` |
+| `props` | Properties to apply to material, these properties will be watched	 | Object| `{}` |
+
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Texturas
+
+Son imágenes 2D proyectadas encima de una malla.
+ 
+```ts
+<Box ref="box">
+  <BasicMaterial>
+    <Texture src="/ink.jpg" refraction :refraction-ratio="0.95" />
+  </BasicMaterial>
+</Box>
+```
+
+Documentación completa en este [link](https://troisjs.github.io/guide/materials/)
+
+::window::
+
+<PlanetExample class="h-250px"/>
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Modelos
+
+TroisJS contiene loaders para modelos `.gltf/.glb` and `.fbx` files.
+
+```ts
+<GltfModel
+    src="/path/to/your/model.gltf"
+    @load="onReady"
+    @progress="onProgress"
+    @error="onError"
+/>
+
+<!-- FBX Model has the same props and events but loads FBX files -->
+<FbxModel
+    src="/path/to/your/model.fbx"
+    @load="onReady"
+    @progress="onProgress"
+    @error="onError"
+/>
+```
+
+Documentación completa en este [link](https://troisjs.github.io/guide/materials/)
+
+::window::
+
+<GltfModelExample class="h-250px"/>
+
+---
+layout: text-window
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Modelos
+
+Ocasionalmente, los modelos tendrán la metalidad de sus materiales establecida en 0 y no se verán afectados por `AmbientLights`. Para solucionarlo (consulte [aquí](https://discourse.threejs.org/t/ambient-light-and-gltf-models-not-working-results-in-black-model/7428/5) para obtener una explicación):
+
+Para remover el problema solo hay que agregar lo siguiente en el callback `OnReady`.
+
+```ts
+model.traverse(o => {
+  if (o.isMesh && props.corrected) {
+    // handle both multiple and single materials
+    const asArray = Array.isArray(o.material) ? o.material : [o.material]
+    // 0 works for matte materials - change as needed
+    asArray.forEach(mat => (mat.metalness = 0))
+  }
+})
+```
+
+Documentación completa en este [link](https://troisjs.github.io/guide/materials/)
+
+::window::
+
+<GltfModelExample corrected class="h-250px"/>
+
+---
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# ¿Estáis listos para ir full 3D?
+
+TroisJS
+
+- Vue3
+- La rápidez de Vite
+- El poder de renderizado de ThreeJS
+- Sencillo
+- Divertido
+  
+---
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# ¿Qué sigue?
+
+Practicar y jugar con la libreria TroisJS.
+
+- [InstancedMesh](https://troisjs.github.io/guide/meshes/instanced.html) (Generación dinámica de objetos)
+- Interactividad con [Eventos](https://troisjs.github.io/guide/meshes/events.html).
+- [Postprocessing](https://troisjs.github.io/guide/postprocessing/)
+- [VR-Button](https://troisjs.github.io/guide/extras/vrbutton.html)
+
+---
+layout: new-section
+eventLogo: 'https://secure.meetupstatic.com/photos/event/4/1/8/a/600_458596778.jpeg'
+eventUrl: 'https://www.meetup.com/VueJS-Madrid/'
+twitter: '@alvaro_code'
+twitterUrl: 'https://twitter.com/alvaro_code'
+---
+
+# Gracias totales
