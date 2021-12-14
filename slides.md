@@ -789,4 +789,4 @@ twitter: '@alvaro_code'
 twitterUrl: 'https://twitter.com/alvaro_code'
 ---
 
-# Gracias totales
+# Gracias totales 🙏🏻
