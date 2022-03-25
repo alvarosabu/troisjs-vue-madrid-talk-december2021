@@ -12,8 +12,8 @@ import {
   Texture,
   Sphere,
 } from 'troisjs'
-import { NumberField } from '@asigloo/vue-dynamic-forms'
-
+/* import { NumberField } from '@asigloo/vue-dynamic-forms'
+ */
 const renderer = ref(null)
 const sphere = ref(null)
 
@@ -26,7 +26,7 @@ const spherePosition = reactive({
 const form = computed(() => ({
   id: 'basic-demo',
   fields: {
-    spherePosX: NumberField({
+    /*     spherePosX: NumberField({
       label: 'Sphere Position X',
       value: 2,
     }),
@@ -37,7 +37,7 @@ const form = computed(() => ({
     spherePosZ: NumberField({
       label: 'Sphere Position Z',
       value: 2,
-    }),
+    }), */
   },
 }))
 
@@ -70,7 +70,7 @@ watch(spherePosition, ({ spherePosX, spherePosY, spherePosZ }) => {
         text-gray-800
       "
     >
-      <DynamicForm :form="form" @change="valueChanged" />
+      <!--     <DynamicForm :form="form" @change="valueChanged" /> -->
       <p>FPS: {{ fps }}</p>
     </div>
     <Renderer orbit-ctrl ref="renderer" resize="true">

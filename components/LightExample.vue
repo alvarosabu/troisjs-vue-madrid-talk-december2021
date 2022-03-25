@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, reactive, watch } from 'vue'
-import { NumberField } from '@asigloo/vue-dynamic-forms'
+/* import { NumberField } from '@asigloo/vue-dynamic-forms' */
 import { useFps } from '@vueuse/core'
 
 import {
@@ -25,7 +25,7 @@ const lampState = reactive({
 const form = computed(() => ({
   id: 'basic-demo',
   fields: {
-    lampPosZ: NumberField({
+    /*  lampPosZ: NumberField({
       label: 'Lamp Position Z',
       value: 50,
     }),
@@ -37,7 +37,7 @@ const form = computed(() => ({
       label: 'Intensity',
       value: 1,
       step: 0.1,
-    }),
+    }), */
   },
 }))
 
@@ -64,7 +64,7 @@ const fps = useFps()
         text-gray-800
       "
     >
-      <DynamicForm :form="form" @change="valueChanged" />
+      <!--     <DynamicForm :form="form" @change="valueChanged" /> -->
       <p>FPS: {{ fps }}</p>
     </div>
     <Renderer orbit-ctrl ref="renderer" resize="true" :shadow="true">

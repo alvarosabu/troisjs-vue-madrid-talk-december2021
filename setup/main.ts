@@ -1,9 +1,8 @@
 import { defineAppSetup } from '@slidev/types'
-import { createDynamicForms } from '@asigloo/vue-dynamic-forms'
 
-const VueDynamicForms = createDynamicForms()
+/* const VueDynamicForms = createDynamicForms() */
 
 export default defineAppSetup(({ app }) => {
   // Vue App
-  app.use(VueDynamicForms)
+  /*   app.use(VueDynamicForms) */
 })

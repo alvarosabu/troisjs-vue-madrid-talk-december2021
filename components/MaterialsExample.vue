@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, reactive, watch } from 'vue'
-import { SelectField } from '@asigloo/vue-dynamic-forms'
+/* import { SelectField } from '@asigloo/vue-dynamic-forms' */
 import { useFps } from '@vueuse/core'
 
 import {
@@ -69,14 +69,14 @@ const matProps = computed(() => AVAILABLE_MATERIALS[currentMaterial.value])
 const form = computed(() => ({
   id: 'basic-demo',
   fields: {
-    mesh: SelectField({
+    /*   mesh: SelectField({
       label: 'Lamp Position Z',
       value: currentMesh.value,
       options: Object.keys(AVAILABLE_MESHES).map(mesh => ({
         label: mesh,
         value: mesh,
       })),
-    }),
+    }), */
   },
 }))
 
